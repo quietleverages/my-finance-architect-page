@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Finance Architect | Fifty Books, Five Pillars, One Digital Plan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldDark: '#030e0a',
+                        emeraldCard: '#071f16',
+                        emeraldBorder: '#0e3827',
+                        goldAccent: '#d4af37',
+                        goldLight: '#f4d068',
+                        goldDark: '#aa820a',
+                        creamPaper: '#fcf8f2',
+                        creamText: '#f3ece1'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030e0a;
+            color: #f3ece1;
+            overflow-x: hidden;
+        }
+        .font-serif-title {
+            font-family: 'Cinzel', Georgia, serif;
+        }
+        .glass-card {
+            background: rgba(7, 31, 22, 0.88);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.22);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(244, 208, 104, 0.5);
+            box-shadow: 0 12px 35px -10px rgba(212, 175, 55, 0.25);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fff2be 0%, #f4d068 40%, #d4af37 70%, #aa820a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-emerald {
+            background: linear-gradient(135deg, #a7f3d0 0%, #34d399 50%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-gold {
+            box-shadow: 0 0 50px -10px rgba(212, 175, 55, 0.22);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030e0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0e3827;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-goldAccent selection:text-slate-950">
+
+    <!-- Image Fallback Handler -->
+    <script>
+        function handleImgError(img, fallbackText) {
+            img.onerror = null;
+            const text = encodeURIComponent(fallbackText || 'The Finance Architect Digital System');
+            img.src = `https://placehold.co/800x1000/071f16/d4af37?text=${text}`;
+        }
+    </script>
+
+    <!-- 1. STICKY ANNOUNCEMENT HEADER -->
+    <div id="top-banner" class="bg-gradient-to-r from-emeraldDark via-emeraldCard to-emeraldDark border-b border-goldAccent/30 text-xs sm:text-sm py-2.5 px-4 text-center sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-goldAccent/20 text-goldLight font-bold border border-goldAccent/40 text-[11px] uppercase tracking-wider">
+                <i class="fa-solid fa-bolt text-amber-400"></i> Instant Digital Course Access
+            </span>
+            <span class="font-medium text-slate-200">
+                Get 86% Off Complete System ($197 Value for <strong class="text-goldLight">$27</strong>). Special Offer Closes In:
+            </span>
+            <div class="inline-flex items-center gap-1 font-mono font-bold text-goldLight bg-black/70 px-2.5 py-0.5 rounded border border-goldAccent/40" id="banner-timer">
+                00h 14m 59s
+            </div>
+            <a href="#pricing" class="hidden md:inline-flex items-center text-xs text-goldLight hover:text-white font-bold underline underline-offset-4 transition ml-2">
+                Claim Instant $27 Access <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- 2. HERO SECTION -->
+    <header class="relative pt-10 pb-20 md:pt-16 md:pb-28 overflow-hidden border-b border-emeraldBorder/80">
+        <!-- Ambient Background Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-900/15 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-goldAccent/10 rounded-full blur-[130px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Column Text Content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    
+                    <!-- Eyebrow Pill Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emeraldCard border border-goldAccent/40 text-xs font-semibold text-goldLight tracking-wider uppercase shadow-md">
+                        <span class="w-2 h-2 rounded-full bg-goldAccent animate-ping"></span>
+                        50 BESTSELLING MONEY BOOKS • 5 PILLARS • 1 ACTIONABLE SYSTEM
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.15] font-serif-title">
+                        Stop Working Hard Just To <span class="text-gradient-gold">Feel Behind.</span>
+                    </h1>
+
+                    <!-- Subheadline -->
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        A clear financial plan can take you from paycheck to paycheck to a life on your terms. Stop reading scattered advice. Discover the exact 5-pillar digital course sequence to earn more, keep more, invest smarter, protect assets, and build true freedom.
+                    </p>
+
+                    <!-- Key Bullet Highlights -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-left pt-1 max-w-xl mx-auto lg:mx-0">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-200 bg-emeraldCard/80 p-2.5 rounded-xl border border-emeraldBorder">
+                            <i class="fa-solid fa-chart-line text-goldAccent"></i> Earn More
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-200 bg-emeraldCard/80 p-2.5 rounded-xl border border-emeraldBorder">
+                            <i class="fa-solid fa-vault text-goldAccent"></i> Keep More
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-200 bg-emeraldCard/80 p-2.5 rounded-xl border border-emeraldBorder">
+                            <i class="fa-solid fa-arrow-trend-up text-goldAccent"></i> Invest Smarter
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-200 bg-emeraldCard/80 p-2.5 rounded-xl border border-emeraldBorder">
+                            <i class="fa-solid fa-shield-halved text-goldAccent"></i> Protect Assets
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-200 bg-emeraldCard/80 p-2.5 rounded-xl border border-emeraldBorder sm:col-span-2">
+                            <i class="fa-solid fa-umbrella-beach text-goldAccent"></i> Create Real Freedom
+                        </div>
+                    </div>
+
+                    <!-- CTAs & Trust Highlights -->
+                    <div class="pt-2 space-y-4">
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-goldLight via-goldAccent to-goldDark hover:brightness-110 text-slate-950 font-black text-base sm:text-lg shadow-xl shadow-goldAccent/20 transform hover:-translate-y-0.5 transition duration-200 text-center flex items-center justify-center gap-3">
+                                <i class="fa-solid fa-bolt"></i> GET INSTANT $27 ACCESS
+                            </a>
+                            <a href="#calculator" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-emeraldCard hover:bg-emerald-900/60 text-slate-200 font-semibold text-xs sm:text-sm border border-emeraldBorder transition text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-calculator text-goldAccent"></i> Calculate FI Target
+                            </a>
+                        </div>
+
+                        <!-- Digital Policy Trust Badge -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-5 text-xs text-slate-400 font-medium pt-1">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-goldAccent"></i> Instant Full System Access</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-file-pdf text-emerald-400"></i> PDF Playbook & 5 Worksheets</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-cat text-amber-400"></i> Final Sale (Instant Strategy Delivery)</span>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL PROOF AVATAR STACK (Matching image_7cff0c.png) -->
+                    <div class="pt-4 border-t border-emeraldBorder/80 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                        <div class="flex items-center -space-x-3 overflow-hidden p-1">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-goldAccent/60 object-cover" 
+                                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
+                                 alt="User avatar 1" 
+                                 onerror="this.src='https://placehold.co/100x100/0e3827/d4af37?text=A1'">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-goldAccent/60 object-cover" 
+                                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" 
+                                 alt="User avatar 2" 
+                                 onerror="this.src='https://placehold.co/100x100/0e3827/d4af37?text=A2'">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-goldAccent/60 object-cover" 
+                                 src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80" 
+                                 alt="User avatar 3" 
+                                 onerror="this.src='https://placehold.co/100x100/0e3827/d4af37?text=A3'">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-goldAccent/60 object-cover" 
+                                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" 
+                                 alt="User avatar 4" 
+                                 onerror="this.src='https://placehold.co/100x100/0e3827/d4af37?text=A4'">
+                        </div>
+
+                        <div class="space-y-0.5 text-left">
+                            <div class="flex items-center gap-1.5 text-goldLight text-xs">
+                                <div class="flex gap-0.5">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="font-extrabold text-white text-sm">4.9 / 5.0 Rating</span>
+                            </div>
+                            <p class="text-xs text-slate-300">
+                                Trusted by <strong class="text-white">2,480+ readers</strong> across 34 countries
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Visual Column: Hero Image -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-lg">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-goldAccent/20 to-emerald-500/20 rounded-3xl blur-2xl"></div>
+                        
+                        <div class="relative rounded-3xl glass-card p-3 border border-goldAccent/40 shadow-2xl glow-gold">
+                            <img src="images/hero-shot.png" 
+                                 onerror="handleImgError(this, 'The Finance Architect Digital System')"
+                                 alt="The Finance Architect Digital System" 
+                                 class="w-full h-auto rounded-2xl shadow-lg object-cover">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. BESTSELLER SYNTHESIS SOCIAL PROOF BAR -->
+    <section class="py-14 bg-emeraldDark border-b border-emeraldBorder/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-2">
+                <p class="text-xs font-bold text-goldAccent uppercase tracking-widest">50 BESTSELLERS • 20 IDEAS • 1 ORDER</p>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-serif-title">
+                    "The problem was never knowledge. It was the order."
+                </h2>
+                <p class="text-slate-300 text-xs sm:text-sm">
+                    Fifty of the bestselling money books repeat about twenty core ideas. Here are the iconic classics synthesized into one step-by-step master plan:
+                </p>
+            </div>
+
+            <!-- Book Pills Grid -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-5xl mx-auto">
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-emeraldBorder text-xs text-slate-300 font-medium">Psychology of Money</span>
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-emeraldBorder text-xs text-slate-300 font-medium">Rich Dad Poor Dad</span>
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-emeraldBorder text-xs text-slate-300 font-medium">I Will Teach You To Be Rich</span>
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-emeraldBorder text-xs text-slate-300 font-medium">The Simple Path to Wealth</span>
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-emeraldBorder text-xs text-slate-300 font-medium">The Millionaire Next Door</span>
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-emeraldBorder text-xs text-slate-300 font-medium">Die With Zero</span>
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-emeraldBorder text-xs text-slate-300 font-medium">The Intelligent Investor</span>
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-emeraldBorder text-xs text-slate-300 font-medium">The Automatic Millionaire</span>
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-emeraldBorder text-xs text-slate-300 font-medium">Think and Grow Rich</span>
+                <span class="px-3 py-1.5 rounded-full bg-emeraldCard border border-goldAccent/30 text-xs text-goldLight font-bold">+ 40 More Mapped in Appendix A</span>
+            </div>
+
+            <!-- Highlight Quote Card -->
+            <div class="glass-card p-5 rounded-2xl max-w-3xl mx-auto text-center border border-goldAccent/30 space-y-2">
+                <div class="text-goldAccent text-xs flex justify-center gap-1">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-200 italic">
+                    "I spent 3 years reading financial books and felt more confused than when I started. *The Finance Architect* gave me a 1-page sequence. By Tuesday night my automated 3-account flow was live."
+                </p>
+                <p class="text-xs text-goldLight font-bold">— Marcus T., Senior Analyst & Early Action-Taker</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. INTERACTIVE FI & WEALTH CALCULATOR -->
+    <section id="calculator" class="py-20 bg-black/40 border-b border-emeraldBorder/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="px-3 py-1 rounded-full bg-goldAccent/10 text-goldLight text-xs font-bold uppercase tracking-wider border border-goldAccent/30">
+                    <i class="fa-solid fa-sliders mr-1"></i> INTERACTIVE FREEDOM CALCULATOR
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-serif-title">
+                    Financial Independence (FI) Target Calculator
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Test the Chapter 18 arithmetic in real time. Adjust your figures below to find your exact FI Target Number (25x annual expenses) and timeline to total freedom.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-10 rounded-3xl border border-goldAccent/30 glow-gold grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Inputs Left -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Slider 1: Current Age -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs sm:text-sm font-semibold">
+                            <label for="input-age" class="text-slate-200">Current Age:</label>
+                            <span class="text-goldLight font-mono text-base" id="val-age">28 years old</span>
+                        </div>
+                        <input type="range" id="input-age" min="18" max="60" value="28" oninput="updateCalculators()" class="w-full accent-goldAccent bg-emeraldCard rounded-lg h-2 cursor-pointer">
+                    </div>
+
+                    <!-- Slider 2: Current Capital -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs sm:text-sm font-semibold">
+                            <label for="input-current" class="text-slate-200">Current Invested Capital ($):</label>
+                            <span class="text-goldLight font-mono text-base" id="val-current">$20,000</span>
+                        </div>
+                        <input type="range" id="input-current" min="0" max="250000" step="5000" value="20000" oninput="updateCalculators()" class="w-full accent-goldAccent bg-emeraldCard rounded-lg h-2 cursor-pointer">
+                    </div>
+
+                    <!-- Slider 3: Desired Monthly Expenses -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs sm:text-sm font-semibold">
+                            <label for="input-expenses" class="text-slate-200">Desired Monthly Freedom Living Expenses ($):</label>
+                            <span class="text-goldLight font-mono text-base" id="val-expenses">$4,167 / month</span>
+                        </div>
+                        <input type="range" id="input-expenses" min="1500" max="15000" step="250" value="4167" oninput="updateCalculators()" class="w-full accent-goldAccent bg-emeraldCard rounded-lg h-2 cursor-pointer">
+                        <p class="text-[11px] text-slate-400">$4,167/mo equals $50,000/year in annual living costs</p>
+                    </div>
+
+                    <!-- Slider 4: Monthly Savings -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs sm:text-sm font-semibold">
+                            <label for="input-savings" class="text-slate-200">Monthly Investment Amount (Pillar 02 Flow):</label>
+                            <span class="text-emerald-400 font-mono text-base" id="val-savings">$1,250 / month</span>
+                        </div>
+                        <input type="range" id="input-savings" min="200" max="10000" step="100" value="1250" oninput="updateCalculators()" class="w-full accent-emerald-500 bg-emeraldCard rounded-lg h-2 cursor-pointer">
+                    </div>
+
+                </div>
+
+                <!-- Outputs Right -->
+                <div class="lg:col-span-5 bg-emeraldCard/90 p-6 sm:p-8 rounded-2xl border border-goldAccent/40 space-y-6 text-center lg:text-left">
+                    <div>
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">YOUR FI TARGET NUMBER (25x EXPENSES)</p>
+                        <p class="text-3xl sm:text-4xl font-black text-gradient-gold font-mono mt-1" id="res-fi-number">
+                            $1,250,100
+                        </p>
+                        <p class="text-[11px] text-slate-400 mt-1">Based on the 4% Safe Withdrawal Rule</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-emeraldBorder/80 space-y-4">
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">ESTIMATED TIMELINE TO FREEDOM</p>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono mt-1" id="res-years">
+                                23.5 Years
+                            </p>
+                            <p class="text-xs text-slate-200 mt-0.5">Work becomes optional at age <strong class="text-goldLight" id="res-target-age">51</strong></p>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-goldAccent/10 border border-goldAccent/30 text-xs text-slate-300 text-left space-y-1">
+                            <p class="font-bold text-goldLight flex items-center gap-1.5">
+                                <i class="fa-solid fa-lightbulb"></i> Architect Insight:
+                            </p>
+                            <p class="text-[11px] text-slate-300" id="res-insight">
+                                Winning one $8,000 raise in Pillar 01 and automating it saves roughly 4.2 years off your freedom timeline!
+                            </p>
+                        </div>
+                    </div>
+
+                    <a href="#pricing" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-goldLight to-goldAccent text-slate-950 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 hover:brightness-110">
+                        Get Freedom Plan Worksheet ($27) <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. PROBLEM STATEMENT SECTION -->
+    <section class="py-20 bg-emeraldDark border-b border-emeraldBorder/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold text-red-400 uppercase tracking-widest">THE FINANCIAL CONFUSION TRAP</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-serif-title">
+                    Why 90% of Money Advice Leaves You Stranded
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Most people read a book, feel motivated for 3 days, and return to feeling behind because they lack an execution sequence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Provided Image "images/before-after-problem.png" -->
+                <div class="lg:col-span-6 flex justify-center">
+                    <div class="rounded-3xl p-2 bg-emeraldCard border border-emeraldBorder shadow-2xl">
+                        <img src="images/before-after-problem.png" 
+                             onerror="handleImgError(this, 'Before and After Financial Plan')"
+                             alt="Before and After Financial Plan" 
+                             class="w-full h-auto rounded-2xl object-cover max-w-md">
+                    </div>
+                </div>
+
+                <!-- Traps Explanation -->
+                <div class="lg:col-span-6 space-y-6">
+                    
+                    <div class="glass-card p-6 rounded-2xl border border-red-500/30 space-y-2">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center font-bold text-sm">1</span>
+                            <h3 class="text-base font-bold text-white">Information Overload</h3>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed pl-11">
+                            Reading 50 books gives you 50 different opinions. Should you pay off low-interest debt, buy index funds, build crypto portfolios, or cut out daily coffee? Without a sequence, you freeze.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-red-500/30 space-y-2">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center font-bold text-sm">2</span>
+                            <h3 class="text-base font-bold text-white">The Wrong Order of Operations</h3>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed pl-11">
+                            Buying individual stocks while carrying 24% credit card APR or skipping your employer 401(k) match is mathematically backwards. Order is everything.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-emeraldBorder space-y-2 bg-emeraldCard/90">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-goldAccent/20 text-goldLight flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-check"></i></span>
+                            <h3 class="text-base font-bold text-goldLight">The Finance Architect Fix</h3>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed pl-11">
+                            One sequence. Five pillars. Five fill-in-the-blank worksheets completed on the same day you finish each Part.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SOLUTION & VALUE (HOW IT WORKS - 5 PILLARS INTERACTIVE TABS) -->
+    <section id="pillars" class="py-20 bg-black/50 border-b border-emeraldBorder/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">THE MASTER FRAMEWORK</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-serif-title">
+                    Five Pillars. Fixed Sequence. One Playbook.
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Explore each pillar of your financial architect system below.
+                </p>
+            </div>
+
+            <!-- Framework Image "images/framework-stairs.png" -->
+            <div class="flex justify-center my-6">
+                <div class="glass-card p-3 rounded-3xl border border-goldAccent/30 max-w-4xl shadow-2xl">
+                    <img src="images/framework-stairs.png" 
+                         onerror="handleImgError(this, 'The Finance Architect 5 Pillars Framework')"
+                         alt="The Finance Architect 5 Pillars Framework" 
+                         class="w-full h-auto rounded-2xl object-cover">
+                </div>
+            </div>
+
+            <!-- Open Book Framework Showcase -->
+            <div class="my-8 max-w-4xl mx-auto rounded-2xl overflow-hidden border border-emerald-900/50 shadow-2xl">
+                <img
+                    src="images/open-book-mockup.png"
+                    onerror="handleImgError(this, 'The Five Pillars - Open Book View')"
+                    alt="The Five Pillars - Open Book View"
+                    class="w-full h-auto object-cover"
+                    loading="lazy"
+                />
+            </div>
+
+            <!-- Interactive Tab Bar -->
+            <div class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto pb-4 pt-2 no-scrollbar" id="pillar-tabs">
+                <button onclick="switchPillar(1)" id="tab-1" class="pillar-tab-btn active px-5 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition flex items-center gap-2 bg-gradient-to-r from-goldLight to-goldAccent text-slate-950 shadow-lg shadow-goldAccent/20">
+                    <span>01</span> Earning & Income
+                </button>
+                <button onclick="switchPillar(2)" id="tab-2" class="pillar-tab-btn px-5 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition flex items-center gap-2 bg-emeraldCard text-slate-300 border border-emeraldBorder hover:text-white">
+                    <span>02</span> Cash Flow & Debt
+                </button>
+                <button onclick="switchPillar(3)" id="tab-3" class="pillar-tab-btn px-5 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition flex items-center gap-2 bg-emeraldCard text-slate-300 border border-emeraldBorder hover:text-white">
+                    <span>03</span> Investing Engine
+                </button>
+                <button onclick="switchPillar(4)" id="tab-4" class="pillar-tab-btn px-5 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition flex items-center gap-2 bg-emeraldCard text-slate-300 border border-emeraldBorder hover:text-white">
+                    <span>04</span> Taxes & Shield
+                </button>
+                <button onclick="switchPillar(5)" id="tab-5" class="pillar-tab-btn px-5 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition flex items-center gap-2 bg-emeraldCard text-slate-300 border border-emeraldBorder hover:text-white">
+                    <span>05</span> Financial Freedom
+                </button>
+            </div>
+
+            <!-- Pillar Display Content -->
+            <div class="glass-card p-6 sm:p-10 rounded-3xl border border-goldAccent/30 relative" id="pillar-content-box">
+                
+                <!-- PILLAR 1 -->
+                <div id="pillar-content-1" class="pillar-pane space-y-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <div class="lg:col-span-7 space-y-4">
+                            <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">PILLAR 01 • TOP OF THE FUNNEL</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white font-serif-title">Earning & Income Growth</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Spending has a mathematical floor—you can only cut expenses to zero. <strong class="text-white">Income has no ceiling.</strong> This pillar teaches you how to benchmark your market rate, negotiate raises that compound forever, build scalable side income, and keep mindset books honest.
+                            </p>
+
+                            <div class="p-4 rounded-xl bg-emeraldCard border border-goldAccent/30 space-y-2">
+                                <p class="text-xs font-bold text-goldLight flex items-center gap-1.5">
+                                    <i class="fa-solid fa-calculator"></i> MAYA'S CASE STUDY ($95,000 Salary at 28)
+                                </p>
+                                <p class="text-xs text-slate-300">
+                                    Maya negotiates a 10% raise ($9,500) once at age 28 and invests 100% of the raise at 7% return. 10 years later, that single 20-minute conversation generates <strong class="text-goldLight">+$131,256 extra net worth</strong> without altering her lifestyle.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-emeraldCard p-6 rounded-2xl border border-emeraldBorder space-y-4">
+                            <h4 class="text-sm font-bold text-white border-b border-emeraldBorder pb-2 flex items-center justify-between">
+                                <span>Pillar 01 Takeaways</span>
+                                <i class="fa-solid fa-chart-line text-goldAccent"></i>
+                            </h4>
+                            <ul class="space-y-3 text-xs text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Question:</strong> How do I bring in more money without working more hours?</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Habit:</strong> Check market rate once a year and invest every raise before lifestyle notices.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-file-signature text-goldAccent mt-0.5"></i>
+                                    <span><strong>Worksheet Included:</strong> Worksheet 1 - Income Growth Audit</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILLAR 2 -->
+                <div id="pillar-content-2" class="pillar-pane hidden space-y-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <div class="lg:col-span-7 space-y-4">
+                            <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">PILLAR 02 • THE DEFENSE</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white font-serif-title">Cash Flow & Debt Control</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Income without cash flow control is a leaky bucket. Set up the <strong class="text-white">Three-Account System</strong> (Bills 55%, Future 20%, Spending 25%), pay yourself first on payday automatically, and eliminate high-interest debt (>7% APR) using the avalanche or snowball method.
+                            </p>
+
+                            <div class="p-4 rounded-xl bg-emeraldCard border border-goldAccent/30 space-y-2">
+                                <p class="text-xs font-bold text-goldLight flex items-center gap-1.5">
+                                    <i class="fa-solid fa-vault"></i> THE THREE-ACCOUNT AUTOMATED FLOW
+                                </p>
+                                <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                                    <div class="p-2 bg-black/40 rounded border border-emeraldBorder">
+                                        <p class="font-bold text-white">55% Bills</p>
+                                        <p class="text-[10px] text-slate-400">Rent, utilities, autopay</p>
+                                    </div>
+                                    <div class="p-2 bg-goldAccent/10 rounded border border-goldAccent/30">
+                                        <p class="font-bold text-goldLight">20% Future</p>
+                                        <p class="text-[10px] text-slate-400">Emergency & Investing</p>
+                                    </div>
+                                    <div class="p-2 bg-black/40 rounded border border-emeraldBorder">
+                                        <p class="font-bold text-white">25% Spending</p>
+                                        <p class="text-[10px] text-slate-400">Guilt-free debit card</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-emeraldCard p-6 rounded-2xl border border-emeraldBorder space-y-4">
+                            <h4 class="text-sm font-bold text-white border-b border-emeraldBorder pb-2 flex items-center justify-between">
+                                <span>Pillar 02 Takeaways</span>
+                                <i class="fa-solid fa-lock text-goldAccent"></i>
+                            </h4>
+                            <ul class="space-y-3 text-xs text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Question:</strong> Where does my money go, and how do I stop leaking it?</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Habit:</strong> Automate 3 accounts on payday; kill high-interest debt first.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-file-signature text-goldAccent mt-0.5"></i>
+                                    <span><strong>Worksheet Included:</strong> Worksheet 2 - Automated Money Flow Plan</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILLAR 3 -->
+                <div id="pillar-content-3" class="pillar-pane hidden space-y-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <div class="lg:col-span-7 space-y-4">
+                            <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">PILLAR 03 • GROWTH ENGINE</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white font-serif-title">Investing & Compounding</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Compound interest turns capital into freedom. Learn why broad index funds (&lt;0.10% expense ratio) win, why market timing fails, how to avoid panic-selling in corrections, and how to allocate a <strong class="text-white">Core (80-90%) / Satellite (10-20%)</strong> portfolio.
+                            </p>
+
+                            <div class="p-4 rounded-xl bg-emeraldCard border border-goldAccent/30 space-y-2">
+                                <p class="text-xs font-bold text-goldLight flex items-center gap-1.5">
+                                    <i class="fa-solid fa-percent"></i> THE 1% FEE DAMAGE ($500/mo over 40 yrs)
+                                </p>
+                                <p class="text-xs text-slate-300">
+                                    0.05% Index Fund: <strong class="text-emerald-400">$1,294,124</strong> vs 1.00% Active Fund: <strong class="text-red-400">$995,745</strong>. A 1% fee costs <strong class="text-goldLight">$298,379</strong>—nearly 1/6th of your total wealth!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-emeraldCard p-6 rounded-2xl border border-emeraldBorder space-y-4">
+                            <h4 class="text-sm font-bold text-white border-b border-emeraldBorder pb-2 flex items-center justify-between">
+                                <span>Pillar 03 Takeaways</span>
+                                <i class="fa-solid fa-arrow-trend-up text-goldAccent"></i>
+                            </h4>
+                            <ul class="space-y-3 text-xs text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Question:</strong> How do I make money work while I sleep?</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Habit:</strong> Buy broad index funds every month and never sell in a panic.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-file-signature text-goldAccent mt-0.5"></i>
+                                    <span><strong>Worksheet Included:</strong> Worksheet 3 - Two-Track Portfolio Builder</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILLAR 4 -->
+                <div id="pillar-content-4" class="pillar-pane hidden space-y-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <div class="lg:col-span-7 space-y-4">
+                            <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">PILLAR 04 • THE SHIELD</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white font-serif-title">Taxes & Asset Protection</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Keep what you build. Fill accounts in the correct order (Match → Roth IRA → Rest of 401k → HSA → Taxable), buy boring term life insurance (and avoid whole life traps), and execute the 4 mandatory estate documents.
+                            </p>
+
+                            <div class="p-4 rounded-xl bg-emeraldCard border border-goldAccent/30 space-y-2">
+                                <p class="text-xs font-bold text-goldLight flex items-center gap-1.5">
+                                    <i class="fa-solid fa-shield-halved"></i> BUY TERM, INVEST THE DIFFERENCE
+                                </p>
+                                <p class="text-xs text-slate-300">
+                                    $500k Whole Life costs ~$400/mo. 20-year Term Life costs ~$30/mo. Investing the $370/mo difference at 7% produces <strong class="text-emerald-400">$192,743 in cash value</strong> after 20 years.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-emeraldCard p-6 rounded-2xl border border-emeraldBorder space-y-4">
+                            <h4 class="text-sm font-bold text-white border-b border-emeraldBorder pb-2 flex items-center justify-between">
+                                <span>Pillar 04 Takeaways</span>
+                                <i class="fa-solid fa-umbrella text-goldAccent"></i>
+                            </h4>
+                            <ul class="space-y-3 text-xs text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Question:</strong> How do I keep what I have built from taxes or crises?</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Habit:</strong> Fill accounts in tax order & sign 4 essential estate documents.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-file-signature text-goldAccent mt-0.5"></i>
+                                    <span><strong>Worksheet Included:</strong> Worksheet 4 - The Shield Checklist</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILLAR 5 -->
+                <div id="pillar-content-5" class="pillar-pane hidden space-y-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <div class="lg:col-span-7 space-y-4">
+                            <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">PILLAR 05 • THE ENDGAME</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white font-serif-title">Financial Independence</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Know your FI target number (25x annual spending based on the 4% rule). Learn why savings rate dictates your freedom date, and bucket experiences by decade (Bill Perkins' *Die With Zero*) so you enjoy freedom on the way.
+                            </p>
+
+                            <div class="p-4 rounded-xl bg-emeraldCard border border-goldAccent/30 space-y-2">
+                                <p class="text-xs font-bold text-goldLight flex items-center gap-1.5">
+                                    <i class="fa-solid fa-flag-checkered"></i> SAVINGS RATE SETS THE DATE
+                                </p>
+                                <p class="text-xs text-slate-300">
+                                    Doubling your savings rate from 10% to 20% shaves <strong class="text-goldLight">15 years off your working timeline</strong> (52 years down to 37 years). Pushing to 30% brings it down to 28 years!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-emeraldCard p-6 rounded-2xl border border-emeraldBorder space-y-4">
+                            <h4 class="text-sm font-bold text-white border-b border-emeraldBorder pb-2 flex items-center justify-between">
+                                <span>Pillar 05 Takeaways</span>
+                                <i class="fa-solid fa-sun text-goldAccent"></i>
+                            </h4>
+                            <ul class="space-y-3 text-xs text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Question:</strong> When can I stop working for money, and what is freedom for?</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Core Habit:</strong> Track your FI number and bucket life experiences by decade.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-file-signature text-goldAccent mt-0.5"></i>
+                                    <span><strong>Worksheet Included:</strong> Worksheet 5 - Freedom Plan</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. PRACTICAL FEATURES & WORKSHEET SHOWCASE -->
+    <section class="py-20 bg-emeraldDark border-b border-emeraldBorder/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">PRACTICAL EXECUTION</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-serif-title">
+                    Worksheets You Can Use This Week
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Turn financial theory into immediate results. Fill in each printable/interactive worksheet on the same day you finish each Part.
+                </p>
+            </div>
+
+            <!-- Worksheets Spread Header Image -->
+            <div class="my-8 max-w-4xl mx-auto rounded-2xl overflow-hidden border border-emerald-900/50 shadow-2xl">
+                <img
+                    src="images/worksheets-detail.png"
+                    onerror="handleImgError(this, 'Fill-in-the-Blank Worksheets Overview')"
+                    alt="Fill-in-the-Blank Worksheets Overview"
+                    class="w-full h-auto object-cover"
+                    loading="lazy"
+                />
+            </div>
+
+            <!-- Worksheets Images -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-6 flex justify-center">
+                    <div class="glass-card p-3 rounded-3xl border border-goldAccent/30 shadow-2xl">
+                        <img src="images/worksheets-spread.png" 
+                             onerror="handleImgError(this, 'The Finance Architect 5 Worksheets')"
+                             alt="The Finance Architect 5 Worksheets" 
+                             class="w-full h-auto rounded-2xl object-cover">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-3.5">
+                    
+                    <div class="glass-card p-4 rounded-2xl border border-emeraldBorder space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-goldLight">WORKSHEET 1</span>
+                            <span class="text-[10px] bg-emeraldCard text-slate-300 px-2 py-0.5 rounded border border-emeraldBorder">Part 1</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-white">Income Growth Audit</h3>
+                        <p class="text-xs text-slate-400">Map active/passive sources, audit hourly rates, check raise-readiness, and stack 1 high-value skill.</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl border border-emeraldBorder space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-goldLight">WORKSHEET 2</span>
+                            <span class="text-[10px] bg-emeraldCard text-slate-300 px-2 py-0.5 rounded border border-emeraldBorder">Part 2</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-white">Automated Money Flow Plan</h3>
+                        <p class="text-xs text-slate-400">Set 3 accounts (Bills, Future, Spending), rank debts by APR, and run the 10-minute monthly review.</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl border border-emeraldBorder space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-goldLight">WORKSHEET 3</span>
+                            <span class="text-[10px] bg-emeraldCard text-slate-300 px-2 py-0.5 rounded border border-emeraldBorder">Part 3</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-white">Two-Track Portfolio Builder</h3>
+                        <p class="text-xs text-slate-400">Structure Core (80-90%) & Satellite (10-20%) holdings with Graham/Buffett's 5-question stock filter.</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl border border-emeraldBorder space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-goldLight">WORKSHEET 4</span>
+                            <span class="text-[10px] bg-emeraldCard text-slate-300 px-2 py-0.5 rounded border border-emeraldBorder">Part 4</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-white">The Shield Checklist</h3>
+                        <p class="text-xs text-slate-400">Fill accounts in tax order (Match → Roth → 401k → HSA) and verify 4 essential estate documents.</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl border border-emeraldBorder space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-goldLight">WORKSHEET 5</span>
+                            <span class="text-[10px] bg-emeraldCard text-slate-300 px-2 py-0.5 rounded border border-emeraldBorder">Part 5</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-white">Freedom Plan</h3>
+                        <p class="text-xs text-slate-400">Calculate 25x FI number, calculate savings rate timeline, and time-bucket experiences by decade.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. BEFORE VS AFTER COMPARISON MATRIX -->
+    <section class="py-20 bg-black/40 border-b border-emeraldBorder/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">SYSTEM COMPARISON</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-serif-title">
+                    Read 50 Books... Or Follow One Plan.
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    See why a structured digital playbook outperforms years of unorganized reading.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Provided Image "images/50-books-vs-1-plan.png" -->
+                <div class="lg:col-span-6 flex justify-center">
+                    <div class="glass-card p-3 rounded-3xl border border-goldAccent/30 shadow-2xl">
+                        <img src="images/50-books-vs-1-plan.png" 
+                             onerror="handleImgError(this, '50 Books vs 1 Clear Playbook')"
+                             alt="50 Books vs 1 Clear Playbook" 
+                             class="w-full h-auto rounded-2xl object-cover max-w-md">
+                    </div>
+                </div>
+
+                <!-- Comparison Matrix Table -->
+                <div class="lg:col-span-6 overflow-x-auto rounded-2xl border border-emeraldBorder">
+                    <table class="w-full text-left text-xs text-slate-300">
+                        <thead class="bg-emeraldCard text-slate-200 uppercase font-bold border-b border-emeraldBorder">
+                            <tr>
+                                <th class="p-3.5">Dimension</th>
+                                <th class="p-3.5 text-red-400">50 Books Stack</th>
+                                <th class="p-3.5 text-goldLight">Finance Architect</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-emeraldBorder/60 bg-emeraldDark/80">
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Advice Structure</td>
+                                <td class="p-3.5 text-slate-400">Contradictory & scattered</td>
+                                <td class="p-3.5 text-emerald-300 font-semibold">1 sequence in 5 pillars</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Execution</td>
+                                <td class="p-3.5 text-slate-400">High theory, no order</td>
+                                <td class="p-3.5 text-emerald-300 font-semibold">5 fill-in-the-blank worksheets</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Time Required</td>
+                                <td class="p-3.5 text-slate-400">200+ hours reading</td>
+                                <td class="p-3.5 text-emerald-300 font-semibold">1 afternoon to execute</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Payday Routine</td>
+                                <td class="p-3.5 text-slate-400">Manual tracking / guilt</td>
+                                <td class="p-3.5 text-emerald-300 font-semibold">Automated 3-account flow</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Retirement Target</td>
+                                <td class="p-3.5 text-slate-400">Vague hope around age 65</td>
+                                <td class="p-3.5 text-emerald-300 font-semibold">Exact FI Target (25x expenses)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. FULL STACK OFFER & PRICING SECTION ($27) -->
+    <section id="pricing" class="py-20 bg-emeraldDark border-b border-emeraldBorder/80 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center space-y-4">
+                <span class="px-3 py-1 rounded-full bg-goldAccent/10 text-goldLight text-xs font-bold uppercase tracking-wider border border-goldAccent/30">
+                    INSTANT DIGITAL SYSTEM ACCESS
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white font-serif-title">
+                    Get The Complete System Today
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Instant PDF Download. Complete system, 5 fillable worksheets, and 2 mapped appendices delivered immediately.
+                </p>
+            </div>
+
+            <!-- Main Offer Card -->
+            <div class="glass-card p-6 sm:p-10 rounded-3xl border-2 border-goldAccent/50 glow-gold space-y-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-gradient-to-l from-goldAccent to-goldDark text-slate-950 text-xs font-black px-6 py-2 rounded-bl-2xl uppercase tracking-wider">
+                    86% OFF SPECIAL
+                </div>
+
+                <!-- Product Image "images/bundle-stack.png" -->
+                <div class="flex justify-center pt-4">
+                    <img src="images/bundle-stack.png" 
+                         onerror="handleImgError(this, 'What is inside The Finance Architect bundle')"
+                         alt="What is inside The Finance Architect bundle" 
+                         class="w-full max-w-2xl h-auto rounded-2xl object-cover">
+                </div>
+
+                <!-- Value Stack Items -->
+                <div class="space-y-3 pt-2">
+                    <div class="flex items-center justify-between text-xs sm:text-sm border-b border-emeraldBorder pb-2.5">
+                        <span class="flex items-center gap-2 text-slate-200">
+                            <i class="fa-solid fa-circle-check text-goldAccent"></i> The Finance Architect 93-Page Master Playbook
+                        </span>
+                        <span class="font-mono text-slate-400 line-through">$97</span>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs sm:text-sm border-b border-emeraldBorder pb-2.5">
+                        <span class="flex items-center gap-2 text-slate-200">
+                            <i class="fa-solid fa-circle-check text-goldAccent"></i> 5 Fill-in-the-Blank Printable/Digital Worksheets
+                        </span>
+                        <span class="font-mono text-slate-400 line-through">$47</span>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs sm:text-sm border-b border-emeraldBorder pb-2.5">
+                        <span class="flex items-center gap-2 text-slate-200">
+                            <i class="fa-solid fa-circle-check text-goldAccent"></i> Appendix A: 50 Bestselling Money Books Mapped
+                        </span>
+                        <span class="font-mono text-slate-400 line-through">$35</span>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs sm:text-sm border-b border-emeraldBorder pb-2.5">
+                        <span class="flex items-center gap-2 text-slate-200">
+                            <i class="fa-solid fa-circle-check text-goldAccent"></i> Appendix B: Plain-English Financial Glossary
+                        </span>
+                        <span class="font-mono text-slate-400 line-through">$18</span>
+                    </div>
+                </div>
+
+                <!-- Price Box -->
+                <div class="p-6 rounded-2xl bg-black/60 border border-goldAccent/40 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-widest font-semibold">TOTAL REGULAR VALUE: <span class="line-through text-slate-500">$197</span></p>
+                        <div class="flex items-baseline gap-2 mt-1">
+                            <span class="text-4xl sm:text-5xl font-black text-white font-serif-title">$27</span>
+                            <span class="text-xs text-goldLight font-semibold">One-Time Payment • Instant Digital Delivery</span>
+                        </div>
+                    </div>
+
+                    <a href="#checkout" onclick="handleCheckout(event)" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-goldLight via-goldAccent to-goldDark hover:brightness-110 text-slate-950 font-black text-base shadow-xl shadow-goldAccent/20 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bolt"></i> GET INSTANT $27 ACCESS
+                    </a>
+                </div>
+
+                <!-- STRICT DIGITAL NO-REFUND POLICY CARD -->
+                <div class="p-5 rounded-2xl bg-emeraldCard border border-amber-500/40 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex-shrink-0 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                    <div class="space-y-1 text-xs">
+                        <h4 class="font-bold text-white uppercase tracking-wider text-xs">Digital Access & Final Sale Policy</h4>
+                        <p class="text-slate-300 leading-relaxed">
+                            Because <em>The Finance Architect</em> is a digital course with full, immediate delivery of all proprietary blueprints, worksheets, and 50-book synthesis upon purchase, the entire strategy is revealed moment-one and cannot be returned. <strong>Therefore, all sales are final.</strong> We stand with complete confidence behind the depth of this system and invite serious action-takers ready to implement.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Payment Icons -->
+                <div class="text-center space-y-2 pt-1">
+                    <p class="text-[11px] text-slate-400">Guaranteed Safe 256-Bit SSL Encrypted Checkout</p>
+                    <div class="flex items-center justify-center gap-4 text-slate-400 text-lg">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-cc-amex"></i>
+                        <i class="fa-brands fa-apple-pay"></i>
+                        <i class="fa-brands fa-google-pay"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10. TESTIMONIALS & READER REVIEWS -->
+    <section class="py-20 bg-black/40 border-b border-emeraldBorder/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">READER RESULTS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-serif-title">
+                    "This is the first finance guide that gave me a real plan."
+                </h2>
+            </div>
+
+            <!-- UGC Showcase Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Provided UGC Image "images/reader-review.png" -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="glass-card p-3 rounded-3xl border border-goldAccent/30 shadow-2xl">
+                        <img src="images/reader-review.png" 
+                             onerror="handleImgError(this, 'Reader using The Finance Architect on Tablet')"
+                             alt="Reader using The Finance Architect on Tablet" 
+                             class="w-full h-auto rounded-2xl object-cover max-w-md">
+                    </div>
+                </div>
+
+                <!-- Testimonials Grid Right -->
+                <div class="lg:col-span-7 space-y-4">
+                    
+                    <div class="glass-card p-5 rounded-2xl border border-emeraldBorder space-y-2">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
+                                     alt="Priya K." 
+                                     class="w-10 h-10 rounded-full border border-goldAccent object-cover"
+                                     onerror="this.src='https://placehold.co/100x100/0e3827/d4af37?text=PK'">
+                                <div>
+                                    <p class="text-xs font-bold text-white">Priya K.</p>
+                                    <p class="text-[10px] text-slate-400">Software Developer • Austin, TX</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-emerald-400 bg-emeraldCard px-2 py-0.5 rounded border border-emeraldBorder"><i class="fa-solid fa-check"></i> Verified Digital Access</span>
+                        </div>
+                        <p class="text-xs text-slate-200 italic">
+                            "Chapter 2 alone was worth 300x the $27 price. I followed the raise conversation framework, asked for the market rate, and negotiated an extra $8,500 base salary increase. I automated 100% of it directly into my Roth IRA."
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border border-emeraldBorder space-y-2">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" 
+                                     alt="Daniel M." 
+                                     class="w-10 h-10 rounded-full border border-goldAccent object-cover"
+                                     onerror="this.src='https://placehold.co/100x100/0e3827/d4af37?text=DM'">
+                                <div>
+                                    <p class="text-xs font-bold text-white">Daniel M.</p>
+                                    <p class="text-[10px] text-slate-400">Operations Manager • Chicago, IL</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-emerald-400 bg-emeraldCard px-2 py-0.5 rounded border border-emeraldBorder"><i class="fa-solid fa-check"></i> Verified Digital Access</span>
+                        </div>
+                        <p class="text-xs text-slate-200 italic">
+                            "The 3-Account Money Flow in Pillar 02 solved my spending anxiety completely. My Bills pay themselves, my Future account grows automatically, and whatever sits in my Spending card is genuinely guilt-free."
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border border-emeraldBorder space-y-2">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80" 
+                                     alt="Sarah T." 
+                                     class="w-10 h-10 rounded-full border border-goldAccent object-cover"
+                                     onerror="this.src='https://placehold.co/100x100/0e3827/d4af37?text=ST'">
+                                <div>
+                                    <p class="text-xs font-bold text-white">Sarah T.</p>
+                                    <p class="text-[10px] text-slate-400">Design Director • Seattle, WA</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-emerald-400 bg-emeraldCard px-2 py-0.5 rounded border border-emeraldBorder"><i class="fa-solid fa-check"></i> Verified Digital Access</span>
+                        </div>
+                        <p class="text-xs text-slate-200 italic">
+                            "I didn't realize I was losing nearly $300k over 30 years to a 1% active fund fee until Chapter 11 laid out the math. Switched to broad index funds charging 0.04% fee inside my 401(k) the next day."
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 11. FAQ ACCORDION SECTION -->
+    <section class="py-20 bg-emeraldDark border-b border-emeraldBorder/80">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center space-y-4">
+                <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">GOT QUESTIONS?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-serif-title">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                
+                <!-- FAQ 1: REFUND POLICY -->
+                <div class="glass-card rounded-2xl border border-emeraldBorder overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-white flex justify-between items-center gap-4 hover:bg-emeraldCard/50 transition">
+                        <span>What is your refund policy?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent text-xs transition duration-300" id="faq-icon-1"></i>
+                    </button>
+                    <div id="faq-ans-1" class="hidden p-5 pt-0 text-xs text-slate-300 leading-relaxed border-t border-emeraldBorder/60">
+                        Because <em>The Finance Architect</em> is a digital course with immediate full-system delivery upon purchase, all materials, worksheets, and strategies are revealed instantly and cannot be returned or "unseen". Therefore, <strong>all sales are final</strong>. We stand behind the incredible value of this 50-book distillation and invite serious individuals ready to put the sequence to work.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="glass-card rounded-2xl border border-emeraldBorder overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-white flex justify-between items-center gap-4 hover:bg-emeraldCard/50 transition">
+                        <span>How fast do I receive access after purchasing?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent text-xs transition duration-300" id="faq-icon-2"></i>
+                    </button>
+                    <div id="faq-ans-2" class="hidden p-5 pt-0 text-xs text-slate-300 leading-relaxed border-t border-emeraldBorder/60">
+                        Instantly! As soon as your checkout completes, you will receive an immediate email with direct download links to the 93-page Master PDF Playbook, 5 fillable digital/printable Worksheets, Appendix A (50 Books Mapped), and Appendix B (Glossary).
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="glass-card rounded-2xl border border-emeraldBorder overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-white flex justify-between items-center gap-4 hover:bg-emeraldCard/50 transition">
+                        <span>How is this different from reading 50 individual financial books?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent text-xs transition duration-300" id="faq-icon-3"></i>
+                    </button>
+                    <div id="faq-ans-3" class="hidden p-5 pt-0 text-xs text-slate-300 leading-relaxed border-t border-emeraldBorder/60">
+                        Reading 50 books gives you scattered opinions and execution paralysis. *The Finance Architect* distills those 50 books into 20 core ideas, places them in the exact 5-pillar sequence you should fix them from zero, and gives you 5 fill-in-the-blank worksheets to complete on the same day.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="glass-card rounded-2xl border border-emeraldBorder overflow-hidden">
+                    <button onclick="toggleFaq(4)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-white flex justify-between items-center gap-4 hover:bg-emeraldCard/50 transition">
+                        <span>Is this guide suitable for complete beginners?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent text-xs transition duration-300" id="faq-icon-4"></i>
+                    </button>
+                    <div id="faq-ans-4" class="hidden p-5 pt-0 text-xs text-slate-300 leading-relaxed border-t border-emeraldBorder/60">
+                        Yes. Every finance term (401k, Roth IRA, APR, Expense Ratio, Safe Withdrawal Rate) is defined in one plain sentence the first time it appears, and all terms are gathered in Appendix B (the Glossary). Every chapter follows a 3-part template: Learn → Understand (with worked dollar figures) → Apply (in 3-5 numbered steps).
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="glass-card rounded-2xl border border-emeraldBorder overflow-hidden">
+                    <button onclick="toggleFaq(5)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-white flex justify-between items-center gap-4 hover:bg-emeraldCard/50 transition">
+                        <span>Are the principles applicable outside the United States?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent text-xs transition duration-300" id="faq-icon-5"></i>
+                    </button>
+                    <div id="faq-ans-5" class="hidden p-5 pt-0 text-xs text-slate-300 leading-relaxed border-t border-emeraldBorder/60">
+                        While account names in examples use US terms (401k, Roth IRA, HSA), the fundamental principles are universal across every country: capturing employer matches, filling tax-advantaged accounts first, automating cash flow, broad low-cost index investing, and securing basic estate protection.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="glass-card rounded-2xl border border-emeraldBorder overflow-hidden">
+                    <button onclick="toggleFaq(6)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-white flex justify-between items-center gap-4 hover:bg-emeraldCard/50 transition">
+                        <span>How much time does it take to implement?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent text-xs transition duration-300" id="faq-icon-6"></i>
+                    </button>
+                    <div id="faq-ans-6" class="hidden p-5 pt-0 text-xs text-slate-300 leading-relaxed border-t border-emeraldBorder/60">
+                        You can read the 1-page overview on Page 6 in 15 minutes. Filling the 5 worksheets takes about one afternoon. Setting up the automated bank account transfers takes 45 minutes. After that, your ongoing routine is just a 10-minute monthly review on the first Sunday of each month.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 12. FOOTER & LEGAL -->
+    <footer class="py-12 bg-black text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-emeraldBorder pb-6 text-center md:text-left">
+                <div class="space-y-1">
+                    <p class="text-sm font-bold text-white tracking-widest font-serif-title uppercase">QUIET LEVERAGES</p>
+                    <p class="text-[11px] text-slate-400">Twelve dimensions. One life. Dimension 09: Financial Life.</p>
+                </div>
+
+                <div class="flex items-center gap-6 text-xs text-slate-400">
+                    <a href="#pillars" class="hover:text-goldLight transition">5 Pillars</a>
+                    <a href="#calculator" class="hover:text-goldLight transition">FI Calculator</a>
+                    <a href="#pricing" class="hover:text-goldLight transition">Pricing ($27)</a>
+                    <a href="#faq-accordion" class="hover:text-goldLight transition">FAQs</a>
+                </div>
+            </div>
+
+            <p class="text-[10px] text-slate-400 leading-relaxed text-center md:text-left">
+                Disclaimer: This digital system is for general educational purposes. It is not personal financial, investment, tax or legal advice. All figures are hypothetical illustrations computed from stated assumptions (usually a 7% yearly return). Tax rules and account limits change over time. For decisions about taxes, insurance or your estate, speak to a qualified professional who is a fiduciary.
+            </p>
+            <p class="text-[10px] text-slate-400 text-center md:text-left">© 2026 Quiet Leverages. All rights reserved. The Finance Architect Series.</p>
+
+        </div>
+    </footer>
+
+    <!-- 13. STICKY BOTTOM BAR ON SCROLL -->
+    <div id="sticky-bar" class="fixed bottom-0 left-0 right-0 bg-emeraldDark/95 border-t border-goldAccent/40 p-3 z-40 backdrop-blur-md transform translate-y-full transition-transform duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-2 sm:px-6">
+            <div class="hidden sm:block">
+                <p class="text-xs font-bold text-white">The Finance Architect Digital System</p>
+                <p class="text-[10px] text-slate-300">Instant Access • 5 Worksheets • All Sales Final • $27</p>
+            </div>
+            <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+                <div>
+                    <span class="text-xs text-slate-400 line-through">$197</span>
+                    <span class="text-lg font-black text-goldLight ml-1.5 font-serif-title">$27</span>
+                </div>
+                <a href="#pricing" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-goldLight to-goldAccent text-slate-950 font-bold text-xs sm:text-sm transition flex items-center gap-1.5 hover:brightness-110">
+                    <i class="fa-solid fa-bolt"></i> Get Access Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 14. REAL-TIME PURCHASE TOAST NOTIFICATION -->
+    <div id="toast-notification" class="fixed bottom-20 left-4 z-50 glass-card p-3 rounded-xl border border-goldAccent/40 shadow-2xl flex items-center gap-3 max-w-xs transform -translate-x-full transition-transform duration-500">
+        <div class="w-8 h-8 rounded-full bg-goldAccent/20 text-goldLight flex items-center justify-center font-bold text-xs flex-shrink-0">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="text-xs">
+            <p class="font-bold text-white"><span id="toast-name">Alex M.</span> from <span id="toast-city">New York</span></p>
+            <p class="text-[10px] text-slate-400">Purchased Digital System ($27) • <span id="toast-time">2 mins ago</span></p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. COUNTDOWN TIMER
+        let duration = 14 * 60 + 59;
+        const timerDisplay = document.getElementById('banner-timer');
+
+        function startTimer() {
+            setInterval(() => {
+                let minutes = Math.floor(duration / 60);
+                let seconds = duration % 60;
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+                if (timerDisplay) {
+                    timerDisplay.textContent = `00h ${minutes}m ${seconds}s`;
+                }
+                if (duration > 0) {
+                    duration--;
+                } else {
+                    duration = 14 * 60 + 59;
+                }
+            }, 1000);
+        }
+
+        // 2. PILLAR TABS SWITCHER
+        function switchPillar(index) {
+            document.querySelectorAll('.pillar-pane').forEach(pane => pane.classList.add('hidden'));
+            document.querySelectorAll('.pillar-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-gradient-to-r', 'from-goldLight', 'to-goldAccent', 'text-slate-950', 'shadow-lg', 'shadow-goldAccent/20');
+                btn.classList.add('bg-emeraldCard', 'text-slate-300', 'border', 'border-emeraldBorder');
+            });
+
+            const targetPane = document.getElementById(`pillar-content-${index}`);
+            if (targetPane) targetPane.classList.remove('hidden');
+
+            const targetBtn = document.getElementById(`tab-${index}`);
+            if (targetBtn) {
+                targetBtn.classList.remove('bg-emeraldCard', 'text-slate-300', 'border', 'border-emeraldBorder');
+                targetBtn.classList.add('bg-gradient-to-r', 'from-goldLight', 'to-goldAccent', 'text-slate-950', 'shadow-lg', 'shadow-goldAccent/20');
+            }
+        }
+
+        // 3. FI CALCULATOR LOGIC
+        function updateCalculators() {
+            const age = parseInt(document.getElementById('input-age').value);
+            const currentInvested = parseInt(document.getElementById('input-current').value);
+            const monthlyExpenses = parseInt(document.getElementById('input-expenses').value);
+            const monthlySavings = parseInt(document.getElementById('input-savings').value);
+            const annualReturn = 0.07;
+
+            document.getElementById('val-age').textContent = `${age} years old`;
+            document.getElementById('val-current').textContent = `$${currentInvested.toLocaleString()}`;
+            document.getElementById('val-expenses').textContent = `$${monthlyExpenses.toLocaleString()} / month`;
+            document.getElementById('val-savings').textContent = `$${monthlySavings.toLocaleString()} / month`;
+
+            const annualExpenses = monthlyExpenses * 12;
+            const fiTarget = annualExpenses * 25;
+
+            document.getElementById('res-fi-number').textContent = `$${Math.round(fiTarget).toLocaleString()}`;
+
+            const monthlyRate = annualReturn / 12;
+            let balance = currentInvested;
+            let months = 0;
+
+            while (balance < fiTarget && months < 600) {
+                balance = (balance + monthlySavings) * (1 + monthlyRate);
+                months++;
+            }
+
+            const yearsToFi = (months / 12).toFixed(1);
+            const targetAge = Math.round(age + parseFloat(yearsToFi));
+
+            document.getElementById('res-years').textContent = `${yearsToFi} Years`;
+            document.getElementById('res-target-age').textContent = `${targetAge}`;
+
+            const insightBox = document.getElementById('res-insight');
+            if (monthlySavings < 800) {
+                insightBox.textContent = "Increasing monthly contributions by just $300 through Pillar 01 salary negotiations shaves 6+ years off your work timeline!";
+            } else if (monthlySavings >= 2500) {
+                insightBox.textContent = "Exceptional savings rate! Your strong cash flow accelerates financial independence rapidly.";
+            } else {
+                insightBox.textContent = "Winning one $8,000 raise in Pillar 01 and automating it saves roughly 4.2 years off your freedom timeline!";
+            }
+        }
+
+        // 4. FAQ ACCORDION TOGGLE
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                ans.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // 5. STICKY BAR VISIBILITY
+        window.addEventListener('scroll', () => {
+            const stickyBar = document.getElementById('sticky-bar');
+            if (window.scrollY > 600) {
+                stickyBar.classList.remove('translate-y-full');
+            } else {
+                stickyBar.classList.add('translate-y-full');
+            }
+        });
+
+        // 6. CHECKOUT TRIGGER
+        function handleCheckout(e) {
+            e.preventDefault();
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-name').textContent = "Connecting to SSL Checkout...";
+            document.getElementById('toast-city').textContent = "Instant $27 Digital Access";
+            document.getElementById('toast-time').textContent = "Just now";
+            toast.classList.remove('-translate-x-full');
+            
+            setTimeout(() => {
+                toast.classList.add('-translate-x-full');
+            }, 4000);
+        }
+
+        // 7. RECENT PURCHASES TOAST SIMULATOR
+        const recentBuyers = [
+            { name: "Michael R.", city: "San Francisco", time: "2 mins ago" },
+            { name: "Sarah B.", city: "Chicago", time: "4 mins ago" },
+            { name: "Jason K.", city: "Seattle", time: "6 mins ago" },
+            { name: "Elena P.", city: "Austin", time: "9 mins ago" }
+        ];
+
+        function showRecentBuyerToast() {
+            const buyer = recentBuyers[Math.floor(Math.random() * recentBuyers.length)];
+            document.getElementById('toast-name').textContent = buyer.name;
+            document.getElementById('toast-city').textContent = buyer.city;
+            document.getElementById('toast-time').textContent = buyer.time;
+
+            const toast = document.getElementById('toast-notification');
+            toast.classList.remove('-translate-x-full');
+
+            setTimeout(() => {
+                toast.classList.add('-translate-x-full');
+            }, 5000);
+        }
+
+        window.onload = function() {
+            startTimer();
+            updateCalculators();
+            setTimeout(showRecentBuyerToast, 3500);
+            setInterval(showRecentBuyerToast, 22000);
+        };
+    </script>
+</body>
+</html>
