@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Disclaimer | The Finance Architect</title>
+    <meta name="description" content="Financial Disclaimer for The Finance Architect, a digital product by Quiet Leverages.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldDark: '#030e0a',
+                        emeraldCard: '#071f16',
+                        emeraldBorder: '#0e3827',
+                        goldAccent: '#d4af37',
+                        goldLight: '#f4d068',
+                        goldDark: '#aa820a',
+                        creamText: '#f3ece1'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030e0a;
+            color: #f3ece1;
+            overflow-x: hidden;
+        }
+        .font-serif-title {
+            font-family: 'Cinzel', Georgia, serif;
+        }
+        .glass-card {
+            background: rgba(7, 31, 22, 0.88);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.22);
+        }
+        .legal h2 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #f4d068;
+            margin-top: 2rem;
+            margin-bottom: 0.6rem;
+        }
+        .legal p, .legal li {
+            font-size: 0.875rem;
+            line-height: 1.75;
+            color: #cbd5e1;
+        }
+        .legal p + p { margin-top: 0.75rem; }
+        .legal ul { list-style: disc; padding-left: 1.25rem; margin-top: 0.5rem; }
+        .legal li + li { margin-top: 0.35rem; }
+        .legal a { color: #f4d068; text-decoration: underline; text-underline-offset: 3px; }
+        .legal a:hover { color: #ffffff; }
+        .legal strong { color: #ffffff; }
+    </style>
+</head>
+<body class="antialiased selection:bg-goldAccent selection:text-slate-950">
+
+    <header class="border-b border-emeraldBorder bg-emeraldDark/95">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+            <a href="../index.html" class="text-sm font-bold text-white tracking-widest font-serif-title uppercase hover:text-goldLight transition">Quiet Leverages</a>
+            <a href="../index.html" class="text-xs text-goldLight hover:text-white font-bold underline underline-offset-4 transition">&larr; Back to The Finance Architect</a>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+        <div class="space-y-2 mb-8">
+            <span class="text-xs font-bold text-goldAccent uppercase tracking-widest">Legal</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white font-serif-title">Financial Disclaimer</h1>
+            <p class="text-xs text-slate-400">Last updated: October 25, 2026</p>
+        </div>
+
+        <article class="legal glass-card rounded-3xl p-6 sm:p-8">
+            <h2 style="margin-top:0">Educational Purposes Only</h2>
+            <p>The Finance Architect is an educational guide and toolkit provided for general informational purposes only. Nothing in the Product or on this website constitutes investment, legal, tax, insurance or other professional financial advice, and nothing is a recommendation to buy, sell or hold any security or financial product.</p>
+
+            <h2>No Professional Relationship</h2>
+            <p>Quiet Leverages is not a registered investment adviser, broker-dealer, tax preparer, attorney or fiduciary. Purchasing or using the Product does not create an advisory or professional relationship. Before making decisions about investing, taxes, insurance, retirement or your estate, speak with a qualified professional who is a fiduciary and who knows your situation.</p>
+
+            <h2>No Guarantee of Results</h2>
+            <p>We do not promise or guarantee any financial outcome, income, return or wealth. Individual results depend on personal execution, circumstances, market conditions and individual decision-making, and you may lose money. Investing involves risk, including loss of principal.</p>
+
+            <h2>Hypothetical Examples</h2>
+            <p>All figures, projections and calculators in the Product and on this website are hypothetical illustrations computed from stated assumptions (usually a 7% yearly return). Past performance and examples shown do not guarantee future results. Tax rules, contribution limits and account types change over time, and examples use US account names that may not apply in your country.</p>
+
+            <h2>Testimonials</h2>
+            <p>Any testimonials or reader reviews reflect individual experiences and are not typical or a guarantee that you will achieve the same results.</p>
+
+            <h2>Meta / Facebook Disclaimer</h2>
+            <p>This site is not a part of the Facebook website or Meta Platforms, Inc. Additionally, this site is NOT endorsed by Meta in any way. FACEBOOK is a trademark of META PLATFORMS, Inc.</p>
+
+            <h2>Your Responsibility</h2>
+            <p>You are solely responsible for your financial decisions. By using this website and the Product you agree that Quiet Leverages is not liable for any loss or damage resulting from your use of, or reliance on, the information provided. See also our <a href="terms-of-service.html">Terms of Service</a>.</p>
+        </article>
+    </main>
+
+    <footer class="py-10 bg-black text-slate-400 text-xs border-t border-emeraldBorder">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-4">
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                <a href="privacy-policy.html" class="hover:text-goldLight transition">Privacy Policy</a>
+                <a href="terms-of-service.html" class="hover:text-goldLight transition">Terms of Service</a>
+                <a href="refund-policy.html" class="hover:text-goldLight transition">Refund Policy</a>
+                <a href="fulfillment-policy.html" class="hover:text-goldLight transition">Digital Delivery Policy</a>
+                <a href="disclaimer.html" class="hover:text-goldLight transition">Financial Disclaimer</a>
+                <a href="contact.html" class="hover:text-goldLight transition">Contact Us</a>
+            </nav>
+            <p class="text-[10px] text-slate-400 text-center">&copy; 2026 Quiet Leverages. All rights reserved. The Finance Architect Series.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
