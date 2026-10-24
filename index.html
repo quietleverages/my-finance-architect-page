@@ -35,6 +35,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lemon Squeezy checkout overlay -->
+    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -113,7 +115,7 @@
             <div class="inline-flex items-center gap-1 font-mono font-bold text-goldLight bg-black/70 px-2.5 py-0.5 rounded border border-goldAccent/40" id="banner-timer">
                 00h 14m 59s
             </div>
-            <a href="#pricing" class="hidden md:inline-flex items-center text-xs text-goldLight hover:text-white font-bold underline underline-offset-4 transition ml-2">
+            <a href="https://quietleverages.lemonsqueezy.com/checkout/buy/da2b5def-07ce-421b-912d-e6024cdb7454?embed=1&amp;logo=0" class="lemonsqueezy-button hidden md:inline-flex items-center text-xs text-goldLight hover:text-white font-bold underline underline-offset-4 transition ml-2">
                 Claim Instant $27 Access <i class="fa-solid fa-arrow-right ml-1"></i>
             </a>
         </div>
@@ -169,7 +171,7 @@
                     <!-- CTAs & Trust Highlights -->
                     <div class="pt-2 space-y-4">
                         <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                            <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-goldLight via-goldAccent to-goldDark hover:brightness-110 text-slate-950 font-black text-base sm:text-lg shadow-xl shadow-goldAccent/20 transform hover:-translate-y-0.5 transition duration-200 text-center flex items-center justify-center gap-3">
+                            <a href="https://quietleverages.lemonsqueezy.com/checkout/buy/da2b5def-07ce-421b-912d-e6024cdb7454?embed=1&amp;logo=0" class="lemonsqueezy-button w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-goldLight via-goldAccent to-goldDark hover:brightness-110 text-slate-950 font-black text-base sm:text-lg shadow-xl shadow-goldAccent/20 transform hover:-translate-y-0.5 transition duration-200 text-center flex items-center justify-center gap-3">
                                 <i class="fa-solid fa-bolt"></i> GET INSTANT $27 ACCESS
                             </a>
                             <a href="#calculator" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-emeraldCard hover:bg-emerald-900/60 text-slate-200 font-semibold text-xs sm:text-sm border border-emeraldBorder transition text-center flex items-center justify-center gap-2">
@@ -374,7 +376,7 @@
                         </div>
                     </div>
 
-                    <a href="#pricing" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-goldLight to-goldAccent text-slate-950 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 hover:brightness-110">
+                    <a href="https://quietleverages.lemonsqueezy.com/checkout/buy/da2b5def-07ce-421b-912d-e6024cdb7454?embed=1&amp;logo=0" class="lemonsqueezy-button w-full py-3.5 rounded-xl bg-gradient-to-r from-goldLight to-goldAccent text-slate-950 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 hover:brightness-110">
                         Get Freedom Plan Worksheet ($27) <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -971,7 +973,7 @@
                         </div>
                     </div>
 
-                    <a href="#checkout" onclick="handleCheckout(event)" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-goldLight via-goldAccent to-goldDark hover:brightness-110 text-slate-950 font-black text-base shadow-xl shadow-goldAccent/20 transition flex items-center justify-center gap-2">
+                    <a href="https://quietleverages.lemonsqueezy.com/checkout/buy/da2b5def-07ce-421b-912d-e6024cdb7454?embed=1&amp;logo=0" class="lemonsqueezy-button w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-goldLight via-goldAccent to-goldDark hover:brightness-110 text-slate-950 font-black text-base shadow-xl shadow-goldAccent/20 transition flex items-center justify-center gap-2">
                         <i class="fa-solid fa-bolt"></i> GET INSTANT $27 ACCESS
                     </a>
                 </div>
@@ -1233,7 +1235,7 @@
                     <span class="text-xs text-slate-400 line-through">$197</span>
                     <span class="text-lg font-black text-goldLight ml-1.5 font-serif-title">$27</span>
                 </div>
-                <a href="#pricing" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-goldLight to-goldAccent text-slate-950 font-bold text-xs sm:text-sm transition flex items-center gap-1.5 hover:brightness-110">
+                <a href="https://quietleverages.lemonsqueezy.com/checkout/buy/da2b5def-07ce-421b-912d-e6024cdb7454?embed=1&amp;logo=0" class="lemonsqueezy-button px-5 py-2.5 rounded-lg bg-gradient-to-r from-goldLight to-goldAccent text-slate-950 font-bold text-xs sm:text-sm transition flex items-center gap-1.5 hover:brightness-110">
                     <i class="fa-solid fa-bolt"></i> Get Access Now
                 </a>
             </div>
@@ -1357,20 +1359,6 @@
                 stickyBar.classList.add('translate-y-full');
             }
         });
-
-        // 6. CHECKOUT TRIGGER
-        function handleCheckout(e) {
-            e.preventDefault();
-            const toast = document.getElementById('toast-notification');
-            document.getElementById('toast-name').textContent = "Connecting to SSL Checkout...";
-            document.getElementById('toast-city').textContent = "Instant $27 Digital Access";
-            document.getElementById('toast-time').textContent = "Just now";
-            toast.classList.remove('-translate-x-full');
-            
-            setTimeout(() => {
-                toast.classList.add('-translate-x-full');
-            }, 4000);
-        }
 
         // 7. RECENT PURCHASES TOAST SIMULATOR
         const recentBuyers = [
