@@ -37,6 +37,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Lemon Squeezy checkout overlay -->
     <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+    <!-- Meta Pixel base code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1593096642062741');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1593096642062741&ev=PageView&noscript=1"/></noscript>
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -1388,6 +1402,66 @@
             setTimeout(showRecentBuyerToast, 3500);
             setInterval(showRecentBuyerToast, 22000);
         };
+    </script>
+
+    <!-- META PIXEL EVENTS -->
+    <script>
+        (function () {
+            var PRODUCT = { content_name: 'The Finance Architect', content_ids: ['finance-architect'], content_type: 'product', value: 27.00, currency: 'USD' };
+
+            function track(name, params, opts) {
+                if (typeof fbq === 'function') fbq('track', name, params, opts);
+            }
+
+            // ViewContent: product landing page viewed
+            track('ViewContent', PRODUCT);
+
+            // InitiateCheckout: any Buy button opens the Lemon Squeezy overlay
+            document.addEventListener('click', function (e) {
+                if (e.target.closest && e.target.closest('.lemonsqueezy-button')) {
+                    track('InitiateCheckout', Object.assign({ num_items: 1 }, PRODUCT));
+                }
+            }, true);
+
+            // Purchase: fired by the Lemon Squeezy overlay when payment completes
+            function setupLemonEvents() {
+                if (!window.LemonSqueezy || window.__lsPixelBound) return;
+                window.__lsPixelBound = true;
+                window.LemonSqueezy.Setup({
+                    eventHandler: function (event) {
+                        if (!event || event.event !== 'Checkout.Success') return;
+                        var order = (event.data && event.data.data) || {};
+                        var attrs = order.attributes || {};
+                        var total = attrs.total != null ? attrs.total / 100 : PRODUCT.value;
+                        var orderId = order.id || (event.data && event.data.id) || undefined;
+                        track('Purchase', {
+                            content_name: PRODUCT.content_name,
+                            content_ids: PRODUCT.content_ids,
+                            content_type: PRODUCT.content_type,
+                            num_items: 1,
+                            value: total,
+                            currency: attrs.currency || 'USD'
+                        }, orderId ? { eventID: 'ls_order_' + orderId } : undefined);
+                    }
+                });
+            }
+            window.addEventListener('load', function () {
+                if (window.createLemonSqueezy) window.createLemonSqueezy();
+                setupLemonEvents();
+            });
+
+            // Custom event: visitor interacts with the FI calculator (once per page view)
+            var calcFired = false;
+            ['input-age', 'input-current', 'input-expenses', 'input-savings'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (!el) return;
+                el.addEventListener('input', function () {
+                    if (calcFired || typeof fbq !== 'function') return;
+                    calcFired = true;
+                    fbq('trackCustom', 'CalculatorUsed');
+                });
+            });
+        })();
     </script>
 </body>
 </html>
