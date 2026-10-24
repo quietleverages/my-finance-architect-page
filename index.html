@@ -1430,21 +1430,8 @@
                 window.LemonSqueezy.Setup({
                     eventHandler: function (event) {
                         if (!event || event.event !== 'Checkout.Success') return;
-                        // TEMP DEBUG: report payload shape (key paths + id-like values only) to find the order id. Remove after use.
-                        try {
-                            var paths = [], ids = {};
-                            (function walk(o, p, d) {
-                                if (!o || typeof o !== 'object' || d > 4) return;
-                                Object.keys(o).forEach(function (k) {
-                                    var q = p ? p + '.' + k : k;
-                                    paths.push(q);
-                                    if (/(^id$|identifier|order_number|order_id)/i.test(k) && typeof o[k] !== 'object') ids[q] = String(o[k]);
-                                    walk(o[k], q, d + 1);
-                                });
-                            })(event, '', 0);
-                            fbq('trackCustom', 'LSCheckoutDebug', { paths: paths.join(',').slice(0, 900), ids: JSON.stringify(ids).slice(0, 400) });
-                        } catch (e) {}
-                        var order = (event.data && event.data.data) || {};
+                        // Lemon.js nests the order at event.data.order.data (same id as the webhook's order id)
+                        var order = (event.data && event.data.order && event.data.order.data) || (event.data && event.data.data) || event.data || {};
                         var attrs = order.attributes || {};
                         var total = attrs.total != null ? attrs.total / 100 : PRODUCT.value;
                         var orderId = order.id || (event.data && event.data.id) || undefined;
